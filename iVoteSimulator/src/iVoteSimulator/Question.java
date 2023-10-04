@@ -1,8 +1,6 @@
 package iVoteSimulator;
 
-import java.util.ArrayList;
-
 interface Question {
 	
-	 ArrayList<String> setCandidateAnswer();
+	 String[] setCandidateAnswer();
 }
