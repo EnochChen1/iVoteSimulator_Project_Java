@@ -1,16 +1,19 @@
 package iVoteSimulator;
 
-public class MultipleChoice implements Question {
-	String answerBank[] = new String[4];
-	
-	public String[] setCandidateAnswer() {
-		answerBank[0] = "A";
-		answerBank[1] = "B";
-		answerBank[2] = "C";
-		answerBank[3] = "D";
+import java.util.ArrayList;
 
+public class MultipleChoice implements Question {
+	private ArrayList<String> answerBank = new ArrayList<String>();
+	public void configureCandidateAnswer() {
+			answerBank.add("A");
+			answerBank.add("B");
+			answerBank.add("C");
+			answerBank.add("D");
+	}
+	public ArrayList<String> getAnswerBank() {
 		return answerBank;
 	}
+	
 	
 	
 	

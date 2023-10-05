@@ -1,6 +1,6 @@
 package iVoteSimulator;
 
-interface Question {
+public interface Question {
 	
-	 String[] setCandidateAnswer();
+	public void configureCandidateAnswer();
 }
