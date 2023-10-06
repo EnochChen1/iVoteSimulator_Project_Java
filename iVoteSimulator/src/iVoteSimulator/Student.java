@@ -9,19 +9,22 @@ import java.util.List;
 public class Student { // 
 	private String uniqueID;
 	
-	public void setID(String exampleID) { //set ID, used when generating Students
+	public void setID(String exampleID) { 
+		//set ID, used when generating Students
 		uniqueID = exampleID;
 	}
 	
-	public String getID() {//used when figuring out which student
+	public String getID() {
+		//used when figuring out which student
 		return uniqueID;
 	}
 	
 	public List<String> submitAnswer(String questionType) {
 		//submit answers to voting service
 		List<String> answer = new ArrayList<>();
-		Random rand = new Random(); //depending on questionType
-		//,answers are chosen at random
+		Random rand = new Random(); 
+		//depending on questionType
+		//answers are chosen at random
 		if(questionType.equals("Single")) {
 			int rightOrWrong = rand.nextInt(2);
 			if(rightOrWrong == 0) {

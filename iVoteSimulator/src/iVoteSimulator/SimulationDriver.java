@@ -2,13 +2,17 @@ package iVoteSimulator;
 
 import java.util.Random;
 
-public class SimulationDriver { //This is where everything is ran
-	public static void main(String [] args) { //The objects needed for the simulation
+public class SimulationDriver { 
+	//This is where everything is ran
+	public static void main(String [] args) { 
+		//The objects needed for the simulation
 		VotingService votes = new VotingService(); 
 		String questionType = "";
 		Random rand = new Random();
-		int singleOrMultiple = rand.nextInt(2); //variable used to choose single or multiple
-		if(singleOrMultiple == 0) {// function used to choose single or multiple
+		int singleOrMultiple = rand.nextInt(2); 
+		//variable used to choose single or multiple
+		if(singleOrMultiple == 0) {
+			// function used to choose single or multiple
 			questionType = "Single";
 			System.out.println("This question is Single-Choice. ");
 		}
@@ -18,12 +22,15 @@ public class SimulationDriver { //This is where everything is ran
 
 		}
 		System.out.println("If there are multiple submissions by the same student,"
-				+ " Student ID will be shown."); //print so professor sees that
+				+ " Student ID will be shown."); 
+		//print so professor sees that
 		//submissions by the same student ID will be the latest
 	
-		votes.setQuestionType(questionType); //sets single or multiple in VotingService
+		votes.setQuestionType(questionType); 
+		//sets single or multiple in VotingService
 		
-		int generateStudentNumber = rand.nextInt(100); //number of students generated will be 0-99
+		int generateStudentNumber = rand.nextInt(100); 
+		//number of students generated will be 0-99
 		System.out.println("The number of students generated is "+generateStudentNumber);
 		for(int i = 0; i < generateStudentNumber; i++) {
 			Student student = new Student();
@@ -40,7 +47,9 @@ public class SimulationDriver { //This is where everything is ran
 			votes.acceptStudentAnswers(student.submitAnswer(questionType), student.getID());
 		}
 		votes.mergeStudentAnswers();
-		votes.displaySubmissions(); //displayed as output of total votes
-		votes.displayStudentSubmissions(); //displayed with student ID and what they voted
+		votes.displaySubmissions(); 
+		//displayed as output of total votes
+		votes.displayStudentSubmissions(); 
+		//displayed with student ID and what they voted
 	}
 }
