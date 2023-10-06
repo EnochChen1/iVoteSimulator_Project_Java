@@ -12,13 +12,15 @@ public class SimulationDriver {
 		int singleOrMultiple = rand.nextInt(2);
 		if(singleOrMultiple == 0) {
 			questionType = "Single";
-			System.out.println("This question is Single-Choice: ");
+			System.out.println("This question is Single-Choice. ");
 		}
 		else if(singleOrMultiple == 1) {
 			questionType = "Multiple";
-			System.out.println("This question is Multiple-Choice: ");
+			System.out.println("This question is Multiple-Choice. ");
 
 		}
+		System.out.println("If there are multiple submissions by the same student,"
+				+ " Student ID will be shown.");
 	
 		votes.setQuestionType(questionType);
 		
