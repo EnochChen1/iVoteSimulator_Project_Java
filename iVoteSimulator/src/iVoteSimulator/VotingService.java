@@ -13,14 +13,18 @@ public class VotingService {
 	private MultipleChoice multipleChoice = new MultipleChoice();
 	private String questionType = "";
 	
-	public void setQuestionType(String type) { //This updates the Submissions HashMap with the correct keys 
-		questionType = type; //depending on whether it is Single Choice or Multiple Choice
+	public void setQuestionType(String type) { 
+		//This updates the Submissions HashMap with the correct keys 
+		//depending on whether it is Single Choice or Multiple Choice
+		questionType = type; 
 		if(type.equals("Single")) {
+			//gets the answerBank of 1. Right and 2. Wrong
 			singleChoice.configureCandidateAnswer();
 			for(int i = 0; i < singleChoice.getAnswerBank().size(); i++) {
 				Submissions.put(singleChoice.getAnswerBank().get(i),0);
 			}
 		}
+		//gets the answerBank of A,B,C,D
 		else if(type.equals("Multiple")) {
 			multipleChoice.configureCandidateAnswer();
 			for(int i = 0; i < multipleChoice.getAnswerBank().size(); i++) {
@@ -28,13 +32,14 @@ public class VotingService {
 			}
 		}
 	}
-	
+	//easy print out for total votes
 	public void displaySubmissions() {
 		for (String i : Submissions.keySet()) {
 			  System.out.println(i + " : " + Submissions.get(i));
 			}
 	}
 	
+	//print out for Student IDs and what answers they submitted
 	public void displayStudentSubmissions() {
 		ArrayList<String> sortedStudentSubmissions =
 				new ArrayList<String>(uniqueIDSubmissions.keySet());
@@ -44,10 +49,12 @@ public class VotingService {
                    " : " + uniqueIDSubmissions.get(i));  
 	}
 	
+	//getter
 	public String getQuestionType() {
 		return questionType;
 	}
 	
+	//puts the students IDs and their answers into a HashMap
 	public void acceptStudentAnswers(List<String> studentAnswers, String studentID) {
 		String studentList = "";
 		for(int i = 0; i < studentAnswers.size(); i++) {
@@ -61,6 +68,8 @@ public class VotingService {
 		uniqueIDSubmissions.put(studentID, studentList);
 	}
 	
+	//Takes the HashMap with the student IDs and their answers
+	//and totals them up
 	public void mergeStudentAnswers() {
 		for(String i: uniqueIDSubmissions.keySet()) {
 			String [] tokens = uniqueIDSubmissions.get(String.valueOf(i)).split(",");
