@@ -9,17 +9,19 @@ import java.util.List;
 public class Student { // 
 	private String uniqueID;
 	
-	public void setID(String exampleID) {
+	public void setID(String exampleID) { //set ID, used when generating Students
 		uniqueID = exampleID;
 	}
 	
-	public String getID() {
+	public String getID() {//used when figuring out which student
 		return uniqueID;
 	}
 	
 	public List<String> submitAnswer(String questionType) {
+		//submit answers to voting service
 		List<String> answer = new ArrayList<>();
-		Random rand = new Random();
+		Random rand = new Random(); //depending on questionType
+		//,answers are chosen at random
 		if(questionType.equals("Single")) {
 			int rightOrWrong = rand.nextInt(2);
 			if(rightOrWrong == 0) {
@@ -29,6 +31,8 @@ public class Student { //
 				answer.add("2. Wrong");
 			}
 		}
+		//for Single, you can only choose one, thus 50% chance 1.Right,
+		//50% chance 2.Wrong
 		else if(questionType.equals("Multiple")) {
 			int [] multipleArray = new int[4];
 			for(int i = 0; i < 4; i++) {
@@ -50,7 +54,10 @@ public class Student { //
 					multiple.put("D","0");
 				}
 			}
+			
+			//for multiple choice, all 4 have an equal chance of being chosen
 			answer = new ArrayList<>(multiple.keySet());
+			//used to make sure answer will be in alphabetical order
 			Collections.sort(answer);
 		}
 		
