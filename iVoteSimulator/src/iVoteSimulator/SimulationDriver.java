@@ -9,7 +9,13 @@ public class SimulationDriver {
 		VotingService votes = new VotingService(); 
 		String questionType = "";
 		Random rand = new Random();
+		
+		System.out.println("This is a simulation.");
+		System.out.println("There is an equal chance for the question to"
+				+ " be single-choice or multiple-choice. ");
+		
 		int singleOrMultiple = rand.nextInt(2); 
+		
 		//variable used to choose single or multiple
 		if(singleOrMultiple == 0) {
 			// function used to choose single or multiple
@@ -21,8 +27,8 @@ public class SimulationDriver {
 			System.out.println("This question is Multiple-Choice. ");
 
 		}
-		System.out.println("If there are multiple submissions by the same student,"
-				+ " Student ID will be shown."); 
+		System.out.println("If there are multiple submissions by the same student"
+				+ " due to RNG, Student ID will be shown."); 
 		//print so professor sees that
 		//submissions by the same student ID will be the latest
 	
@@ -34,7 +40,11 @@ public class SimulationDriver {
 		System.out.println("The number of students generated is "+generateStudentNumber);
 		for(int i = 0; i < generateStudentNumber; i++) {
 			Student student = new Student();
-			int generateStudentID = rand.nextInt(1000); //IDs are from 0-999
+			int generateStudentID = rand.nextInt(1000); 
+			//IDs are from 0-999
+			//This also means there is a possibility of 
+			//students submitting multiple times
+			//if the ID generated is the same as a previous one
 			String ID = String.valueOf(generateStudentID);
 			if(generateStudentID > 0 && generateStudentID < 100) {
 				//done so that sorting is easier for me
