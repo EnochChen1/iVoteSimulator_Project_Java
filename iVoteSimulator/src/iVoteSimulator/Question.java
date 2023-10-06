@@ -1,6 +1,6 @@
 package iVoteSimulator;
 
-public interface Question {
+public interface Question { //This is my interface for the questions
 	
 	public void configureCandidateAnswer();
 }

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class MultipleChoice implements Question {
 	private ArrayList<String> answerBank = new ArrayList<String>();
-	public void configureCandidateAnswer() {
-			answerBank.add("A");
+	public void configureCandidateAnswer() { //I made the answer banks for the two classes different
+			answerBank.add("A"); //So that it would be more obvious what it is
 			answerBank.add("B");
 			answerBank.add("C");
 			answerBank.add("D");
