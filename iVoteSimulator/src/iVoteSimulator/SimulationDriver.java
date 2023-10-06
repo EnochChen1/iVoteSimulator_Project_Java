@@ -40,7 +40,7 @@ public class SimulationDriver { //This is where everything is ran
 			votes.acceptStudentAnswers(student.submitAnswer(questionType), student.getID());
 		}
 		votes.mergeStudentAnswers();
-		votes.displaySubmissions();
-		votes.displayStudentSubmissions();
+		votes.displaySubmissions(); //displayed as output of total votes
+		votes.displayStudentSubmissions(); //displayed with student ID and what they voted
 	}
 }
